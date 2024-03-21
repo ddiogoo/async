@@ -3,6 +3,10 @@ package chat;
 import java.util.Scanner;
 
 public final class Command {
+    /**
+     * Obtain a user's valid name.
+     * @return User name [String].
+     */
     public static String getName() {
         Scanner sc = new Scanner(System.in);
         String name = sc.nextLine();
@@ -21,6 +25,9 @@ public final class Command {
         return name;
     }
 
+    /**
+     * Cleans the terminal.
+     */
     public static void clearScreen() {  
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
