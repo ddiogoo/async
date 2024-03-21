@@ -22,6 +22,12 @@ public class Client {
         connectionFactory.setHost("localhost");
 
         try {
+            new ClientConsumer().run();
+        } catch (IOException | TimeoutException e) {
+            throw new RuntimeException(e.getMessage());
+        }
+
+        try {
             Connection connection = connectionFactory.newConnection();
             Channel channel = connection.createChannel();
             channel.exchangeDeclare(exchange_name, BuiltinExchangeType.FANOUT);
