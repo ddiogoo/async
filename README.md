@@ -1,6 +1,6 @@
 # async
 
-- [Portuguese]
+#### [Portuguese version]
 
 ### Sobre
 
@@ -18,7 +18,7 @@ Projetos com implementação de código na linguagem de programação Java no in
 
 Antes de rodar qualquer arquivo Java, certifique-se que o contâiner com o RabbitMQ esteja funcionando.
 
-- [English]
+#### [English version]
 
 ### About
 
