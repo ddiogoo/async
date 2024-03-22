@@ -3,7 +3,6 @@ package chat;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Scanner;
 import java.util.concurrent.TimeoutException;
 
 import com.google.gson.Gson;
@@ -15,7 +14,7 @@ import com.rabbitmq.client.ConnectionFactory;
 public class Client {
     public static void main(String[] args) {
         System.out.print("Enter your name: ");
-        String name = Command.getName();
+        String name = Command.name();
 
         String exchange_name = "chat";
         ConnectionFactory connectionFactory = new ConnectionFactory();
@@ -33,10 +32,14 @@ public class Client {
             channel.exchangeDeclare(exchange_name, BuiltinExchangeType.FANOUT);
 
             Gson gson = new Gson();
-            Scanner sc = new Scanner(System.in);
             while(true) {
                 System.out.print("-> ");
-                String content = sc.nextLine();
+                String content = null;
+                try {
+                    content = Command.message();
+                } catch(Exception e) {
+                    content = Command.message();
+                }
 
                 if(content.equals("/exit")) {
                     System.out.println("Exit to application...");
@@ -49,7 +52,6 @@ public class Client {
                 Message message = new Message(name, content, date, hour);
                 channel.basicPublish(exchange_name, "", null, gson.toJson(message).getBytes());
             }
-            sc.close();
         } catch(TimeoutException | IOException e) {
             throw new RuntimeException(e.getMessage());
         }
