@@ -35,7 +35,7 @@ public class ClientConsumer extends Thread {
             DeliverCallback deliverCallback = (consumerTag, delivery) -> {
                 String content = new String(delivery.getBody(), "UTF-8");
                 Message message = gson.fromJson(content, Message.class);
-                System.out.println("[" + message.sender() + "]: " + message.content() + " [" + message.date() + ": " + message.hour() + "]");
+                System.out.println("-> [" + message.sender() + "]: " + message.content() + " [" + message.date() + ": " + message.hour() + "]");
             };
             channel.basicConsume(QUEUE_NAME, true, deliverCallback, consumerTag -> { });
         } catch (IOException e) {

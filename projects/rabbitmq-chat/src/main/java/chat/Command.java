@@ -3,8 +3,9 @@ package chat;
 import java.util.Scanner;
 
 public final class Command {
+    public static Scanner sc = new Scanner(System.in);
+
     public static String name() {
-        Scanner sc = new Scanner(System.in);
         String name = sc.nextLine();
         while(name == null || name == "") {
             clearScreen();
@@ -17,14 +18,11 @@ public final class Command {
             System.out.println("Digite um nome válido: ");
             name = sc.nextLine();
         }
-        sc.close();
         return name;
     }
 
     public static String message() {
-        Scanner sc = new Scanner(System.in);
         String message = sc.nextLine();
-        sc.close();
         return message;
     }
 

@@ -52,6 +52,7 @@ public class Client {
                 Message message = new Message(name, content, date, hour);
                 channel.basicPublish(exchange_name, "", null, gson.toJson(message).getBytes());
             }
+            Command.sc.close();
         } catch(TimeoutException | IOException e) {
             throw new RuntimeException(e.getMessage());
         }
