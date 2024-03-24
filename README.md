@@ -12,8 +12,6 @@ Projetos com implementação de código na linguagem de programação Java no in
 
 ```docker/```: Docker-compose que possui as informações necessárias para criar um container com a instância do RabbitMQ.
 
-```projects/```: Projetos para exercitar o conteúdo trabalhado.
-
 ### Importante
 
 Antes de rodar qualquer arquivo Java, certifique-se que o contâiner com o RabbitMQ esteja funcionando.
@@ -29,8 +27,6 @@ Projects with code implementation in the Java programming language in order to w
 ```content/```: Worked content, using implementations from the RabbitMQ documentation.
 
 ```docker/```: Docker-compose that has the necessary information to create a container with the RabbitMQ instance.
-
-```projects/```: Projects to exercise the content worked on.
 
 ### Important
 
